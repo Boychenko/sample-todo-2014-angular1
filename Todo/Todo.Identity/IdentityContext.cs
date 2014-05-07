@@ -8,6 +8,11 @@ namespace Todo.Identity
 {
     public class IdentityContext : IdentityDbContext<AuthenticateUser>
     {
+        public static IdentityContext Create()
+        {
+            return new IdentityContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("identity");

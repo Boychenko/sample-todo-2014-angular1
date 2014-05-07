@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -73,9 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationUser.cs" />
+    <Compile Include="AppBuilderExtensions.cs" />
+    <Compile Include="AppClaimTypes.cs" />
+    <Compile Include="AppPasswordValidator.cs" />
+    <Compile Include="AppUserValidator.cs" />
+    <Compile Include="AuthenticateUser.cs" />
     <Compile Include="AuthorizationServerProvider.cs" />
     <Compile Include="IdentityContext.cs" />
+    <Compile Include="IdentityExtentions.cs" />
     <Compile Include="IdentityMigrations\201405051747072_Initial.cs" />
     <Compile Include="IdentityMigrations\201405051747072_Initial.Designer.cs">
       <DependentUpon>201405051747072_Initial.cs</DependentUpon>
@@ -83,6 +89,7 @@
     <Compile Include="IdentityMigrations\Configuration.cs" />
     <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AppUserManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
