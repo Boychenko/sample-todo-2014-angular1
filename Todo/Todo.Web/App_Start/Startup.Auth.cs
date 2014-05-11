@@ -15,16 +15,13 @@ namespace Todo.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             app.UsePerOwinContext(IdentityContext.Create);
-
-            //app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
             app.UsePerOwinContext<AppUserManager>(AppUserManager.Create);
-            //app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromHours(12),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 Provider = new AuthorizationServerProvider()
             });
 
