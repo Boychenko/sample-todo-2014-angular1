@@ -230,11 +230,42 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\js\common\common.js" />
+    <Content Include="app\js\common\config.exceptionHandler.js" />
+    <Content Include="app\js\common\config.js" />
+    <Content Include="app\js\common\directives\directives.js" />
+    <Content Include="app\js\common\filters\filters.js" />
+    <Content Include="app\js\common\services\common.js" />
+    <Content Include="app\js\common\services\logger.js" />
+    <Content Include="app\js\common\services\modal-tpls.js" />
+    <Content Include="app\js\common\services\modalService.js" />
+    <Content Include="app\js\common\services\routeConfigurator.js" />
+    <Content Include="app\js\common\services\routeResolver.js" />
+    <Content Include="app\js\todo\config.authToken.js" />
+    <Content Include="app\js\todo\config.route.js" />
+    <Content Include="app\js\todo\config.authErrorHandler.js" />
+    <Content Include="app\js\todo\controllers\itemListController.js" />
+    <Content Include="app\js\todo\controllers\loginController.js" />
+    <Content Include="app\js\todo\controllers\registerController.js" />
+    <Content Include="app\js\todo\directives\directives.js" />
+    <Content Include="app\js\todo\services\auth.js" />
+    <Content Include="app\js\todo\services\datalayer\dataservice.item.js" />
+    <Content Include="app\js\todo\services\datalayer\dataservice.js" />
+    <Content Include="app\js\todo\services\datalayer\dataservice.references.js" />
+    <Content Include="app\js\todo\services\session.js" />
+    <Content Include="app\js\todo\todo.js" />
+    <Content Include="app\views\items\list.html" />
+    <Content Include="app\views\login.html" />
+    <Content Include="app\views\register.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\toastr.css">
+      <DependentUpon>toastr.less</DependentUpon>
+    </Content>
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -278,6 +309,12 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="connectionStrings.config" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Content\toastr.css.map">
+      <DependentUpon>toastr.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.11.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.0.js" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
@@ -286,6 +323,10 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\underscore-min.js" />
+    <Content Include="Scripts\underscore.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -297,11 +338,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.11.0.min.map" />
+    <Content Include="Scripts\toastr.min.js.map" />
+    <Content Include="Scripts\underscore-min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Todo.Domain\Todo.Domain.csproj">
@@ -331,16 +372,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>55740</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55159/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

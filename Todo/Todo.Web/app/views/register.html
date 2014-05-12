@@ -1,0 +1,40 @@
+﻿<section data-ng-controller="registerController as vm">
+    <form name="form">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h1>Register</h1>
+                <div data-ng-if="vm.error && vm.error.length" class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <ul>
+                        <li data-ng-repeat="err in vm.error">{{err}}</li>
+                    </ul>
+                </div>
+                <div class="form-group" data-ng-class="{'has-error': (form.email.$dirty && form.email.$invalid)}">
+                    <label class="control-label">Email</label>
+                    <input name="email" class="form-control" type="text" data-ng-model="vm.registrationInfo.email" data-ng-pattern="vm.regExps.email" required="" />
+                    <span class="help-block" data-ng-show="form.email.$dirty && form.email.$error.required">Email is required</span>
+                    <span class="help-block" data-ng-show="form.email.$dirty && form.email.$error.pattern">Wrong format</span>
+                </div>
+                <div class="form-group" data-ng-class="{'has-error': (form.password.$dirty && form.password.$invalid)}">
+                    <label class="control-label">Password</label>
+                    <input name="password" class="form-control" type="password" data-equals="{{vm.registrationInfo.confirmPassword}}" data-ng-model="vm.registrationInfo.password" required="" />
+                    <span class="help-block" data-ng-show="form.password.$dirty && form.password.$error.required">Password is required</span>
+                    <span class="help-block" data-ng-show="form.password.$dirty && form.password.$error.equals">Confirm password should match</span>
+                </div>
+                <div class="form-group" data-ng-class="{'has-error': (form.confirmPassword.$dirty && form.confirmPassword.$invalid)}">
+                    <label class="control-label">Confirm Password</label>
+                    <input name="confirmPassword" class="form-control" type="password" data-equals="{{vm.registrationInfo.password}}" data-ng-model="vm.registrationInfo.confirmPassword" required="" />
+                    <span class="help-block" data-ng-show="form.confirmPassword.$dirty && form.confirmPassword.$error.required">Password is required</span>
+                    <span class="help-block" data-ng-show="form.confirmPassword.$dirty && form.confirmPassword.$error.equals">Confirm password should match</span>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input data-ng-model="vm.persistent" type="checkbox"> Remember Me
+                    </label>
+                </div>
+                <button type="submit" href data-ng-disabled="vm.processing || form.$invalid" class="btn btn-success" data-ng-click="vm.register(form)">Register</button>
+            </div>
+        </div>
+    </form>
+</section>

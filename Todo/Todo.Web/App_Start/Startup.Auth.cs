@@ -20,7 +20,7 @@ namespace Todo.Web
             app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
+                TokenEndpointPath = new PathString("/api/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 Provider = new AuthorizationServerProvider()
             });

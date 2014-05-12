@@ -44,7 +44,7 @@ namespace Todo.Web.Controllers
 
             AuthenticateUser user = new AuthenticateUser()
             {
-                UserName = model.UserName,
+                UserName = model.Email,
                 Email = model.Email,
                 EmailConfirmed = true,//only for DEMO purposes
                 User = appUser
