@@ -23,6 +23,7 @@ namespace Todo.Web
                       "~/Scripts/respond.js",
                       "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                       "~/Scripts/toastr.js",
+                      "~/Scripts/moment.js",
                       "~/Scripts/underscore.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/todoApp").Include(
@@ -45,6 +46,7 @@ namespace Todo.Web
                       "~/app/js/todo/services/auth.js",
                       "~/app/js/todo/directives/directives.js",
                       "~/app/js/todo/controllers/itemListController.js",
+                      "~/app/js/todo/controllers/itemEditController.js",
                       "~/app/js/todo/controllers/loginController.js",
                       "~/app/js/todo/controllers/registerController.js",
                       "~/app/js/todo/config.route.js",

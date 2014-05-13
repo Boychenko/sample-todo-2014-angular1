@@ -38,15 +38,14 @@
     commonModule.constant('regExps', regExps);
     commonModule.constant('$', jQuery);
     commonModule.constant('_', _);
+    commonModule.constant('moment', moment);
     
     var commonConfig = {
         appErrorPrefix: '[TodoApp Error] ', //Configure the exceptionHandler decorator
         docTitle: 'Todo App: ',
         version: '0.0.1',
         dates: {
-            shortDate: 'DD MMM YYYY',
-            fullDate: 'LLLL',
-            shortFullDate: 'YYYY MMM DD HH:mm'
+            shortDate: 'DD MMM YYYY'
         },
         keyCodes: keyCodes,
         apiBaseUrl: baseUrl + 'api/',

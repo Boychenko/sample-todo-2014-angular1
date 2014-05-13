@@ -8,6 +8,7 @@
     function authenticate($http, common, session) {
         var routeResolver = common.routeResolver;
         var $ = common.$;
+        var errorCallback = common.errorCallback;
 
         // Define the functions and properties to reveal.
         var service = {
@@ -32,9 +33,7 @@
 
         function register(registrationInfo) {
             return $http.post(routeResolver.getApiUrl('account/register'), registrationInfo)
-                .then(function (result) {
-                    console.log(result);
-                });
+                .catch(errorCallback);
         }
 
         function logout() {

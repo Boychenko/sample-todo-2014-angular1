@@ -11,7 +11,6 @@
         });
 
         var errorCallback = common.errorCallback;
-        var sucessCallback = common.sucessCallback;
 
         var service = {
             getList: getList,
@@ -23,8 +22,8 @@
 
         return service;
 
-        function getList() {
-            return resource.query().$promise.catch(errorCallback);
+        function getList(params) {
+            return resource.get(params).$promise.catch(errorCallback);
         }
 
         function create(category){
@@ -39,7 +38,7 @@
         }
 
         function remove(id){
-            return resource.remove({ id: id }).$promise.then(sucessCallback).catch(errorCallback);
+            return resource.remove({ id: id }).$promise.catch(errorCallback);
         }
     }
 })();

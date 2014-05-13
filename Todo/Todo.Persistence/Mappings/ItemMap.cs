@@ -8,8 +8,8 @@ namespace Todo.Persistence.Mappings
     {
         public ItemMap()
         {
-            this.HasKey(u => u.Id);
-
+            this.HasKey(i => i.Id);
+            this.Property(i => i.Title).IsRequired().HasMaxLength(250);
         }
     }
 }

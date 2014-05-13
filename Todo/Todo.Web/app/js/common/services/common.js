@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('todo.common').factory('common', ['$', '_', '$q', '$rootScope', '$timeout', 'logger', 'commonConfig', 'routeResolver', 'regExps', 'modalService', common]);
+    angular.module('todo.common').factory('common', ['$', '_', '$q', 'moment', '$rootScope', '$timeout', 'logger', 'commonConfig', 'routeResolver', 'regExps', 'modalService', common]);
 
-    function common($, _, $q, $rootScope, $timeout, logger, config, routeResolver, regExps, modalService) {
+    function common($, _, $q, moment, $rootScope, $timeout, logger, config, routeResolver, regExps, modalService) {
 
         var logError = logger.getLogFn('app', 'error');
 
@@ -13,6 +13,7 @@
             $q: $q,
             $: $,
             _: _,
+            moment: moment,
             $timeout: $timeout,
             createDebouncedThrottle: createDebouncedThrottle,
             // generic
@@ -21,7 +22,6 @@
             textContains: textContains,
             config: config,
             errorCallback: errorCallback,
-            sucessCallback: sucessCallback,
             routeResolver: routeResolver,
             regExps: regExps,
             modalService: modalService,
@@ -40,12 +40,12 @@
 
         function parseErrors(response) {
             var errors = [];
-            if (!response.ModelState) {
+            if (!response.modelState) {
                 return null;
             }
-            for (var key in response.ModelState) {
-                for (var i = 0; i < response.ModelState[key].length; i++) {
-                    errors.push(response.ModelState[key][i]);
+            for (var key in response.modelState) {
+                for (var i = 0; i < response.modelState[key].length; i++) {
+                    errors.push(response.modelState[key][i]);
                 }
             }
             return errors;
@@ -101,18 +101,18 @@
         }
 
         function errorCallback(error) {
-            var msg = config.appErrorPrefix + 'Operation error';
-            logError(msg, error);
-            return $q.reject(error);
-        }
-
-        function sucessCallback(data) {
-            if (data.ackCode == 200) {
-                return data;
+            if(error.status === 400) {
+                error._parsedErrors = parseErrors(error.data);
             }
+            if (!error._parsedErrors) {
 
-            logError(data.ack, data, true);
-            return null;
+                var msg = config.appErrorPrefix + 'Operation error';
+                if (error.data && error.data.message) {
+                    msg += ' ' + error.data.message;
+                }
+                logError(msg, error);
+            }
+            return $q.reject(error);
         }
 
         //assuming that last parameter always bool and initially usually false

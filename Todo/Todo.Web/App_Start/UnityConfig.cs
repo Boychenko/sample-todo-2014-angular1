@@ -1,6 +1,15 @@
 using System;
+using System.Data.Entity;
+
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+
+using Todo.Domain;
+using Todo.Domain.Contracts;
+using Todo.Domain.Contracts.Services;
+using Todo.Persistence;
+using Todo.Services;
+using Todo.Services.Mappers;
 
 namespace Todo.Web.App_Start
 {
@@ -32,11 +41,11 @@ namespace Todo.Web.App_Start
         /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
+           container.RegisterType<DbContext, TodoDbContext>(new HierarchicalLifetimeManager());
+           container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
 
-            // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
+           container.RegisterType<IItemService, ItemService>(new HierarchicalLifetimeManager());
+           container.RegisterType(typeof(IMapper<,>), typeof(Mapper<,>), new ContainerControlledLifetimeManager());
         }
     }
 }

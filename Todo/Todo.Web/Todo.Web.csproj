@@ -221,10 +221,15 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\ReferencesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dtos\ItemDto.cs" />
+    <Compile Include="Models\Dtos\ListResponse.cs" />
+    <Compile Include="Models\Dtos\ReferencesResponse.cs" />
+    <Compile Include="Models\ListRequest.cs" />
     <Compile Include="Models\RegisterBindingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -244,6 +249,7 @@
     <Content Include="app\js\todo\config.authToken.js" />
     <Content Include="app\js\todo\config.route.js" />
     <Content Include="app\js\todo\config.authErrorHandler.js" />
+    <Content Include="app\js\todo\controllers\itemEditController.js" />
     <Content Include="app\js\todo\controllers\itemListController.js" />
     <Content Include="app\js\todo\controllers\loginController.js" />
     <Content Include="app\js\todo\controllers\registerController.js" />
@@ -254,6 +260,7 @@
     <Content Include="app\js\todo\services\datalayer\dataservice.references.js" />
     <Content Include="app\js\todo\services\session.js" />
     <Content Include="app\js\todo\todo.js" />
+    <Content Include="app\views\items\edit.html" />
     <Content Include="app\views\items\list.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\register.html" />
@@ -319,6 +326,10 @@
     <Content Include="Scripts\jquery-1.11.0.js" />
     <Content Include="Scripts\jquery-1.11.0.min.js" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\moment-with-langs.js" />
+    <Content Include="Scripts\moment-with-langs.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -352,6 +363,14 @@
     <ProjectReference Include="..\Todo.Identity\Todo.Identity.csproj">
       <Project>{E8269726-BD88-4DB6-87E1-ABD812CE9829}</Project>
       <Name>Todo.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Todo.Persistence\Todo.Persistence.csproj">
+      <Project>{1BCBA751-EDA2-4EBA-B0E2-3A8FD3E0CEFC}</Project>
+      <Name>Todo.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Todo.Services\Todo.Services.csproj">
+      <Project>{BAF8347E-B4D6-46E5-9B72-DCCD24A0D818}</Project>
+      <Name>Todo.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

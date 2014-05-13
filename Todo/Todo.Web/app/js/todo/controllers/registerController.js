@@ -37,18 +37,7 @@
                 .then(function () {
                     $location.path('/login');
                 }).catch(function (error) {
-                    console.log(error);
-                    if (error.status === 400) {
-                        vm.error = common.parseErrors(error.data);
-                    }
-                    if (!vm.error) {
-
-                        var msg = config.appErrorPrefix + 'Operation error';
-                        if (error.data && error.data.message) {
-                            msg += ' ' + error.data.message;
-                        }
-                        logError(msg, error);
-                    }
+                    vm.error = error._parsedErrors;
                 }).finally(function () {
                     vm.processing = false;
                 });

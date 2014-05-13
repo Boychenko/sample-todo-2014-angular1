@@ -14,6 +14,13 @@
                 }
             },
             {
+                url: '/edit/:id?',
+                config: {                    
+                    templateUrl: 'items/edit.html',
+                    authRequired: true
+                }
+            },
+            {
                 url: '/register',
                 config: {
                     templateUrl: 'register.html',
