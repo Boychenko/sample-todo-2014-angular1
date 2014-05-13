@@ -5,7 +5,7 @@ namespace Todo.Identity.IdentityMigrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Todo.Identity.IdentityContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Todo.Identity.IdentityContext>
     {
         public Configuration()
         {

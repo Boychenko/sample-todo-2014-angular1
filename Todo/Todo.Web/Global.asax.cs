@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -18,6 +19,19 @@ namespace Todo.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            UpdateDatabase();//only for DEMO. In real life CI should do this
+        }
+
+        private static void UpdateDatabase()
+        {
+            var persistenceConfig = new Persistence.Migrations.Configuration();
+            var migrator = new DbMigrator(persistenceConfig);
+            migrator.Update();
+
+            var identityConfig = new Identity.IdentityMigrations.Configuration();
+            migrator = new DbMigrator(identityConfig);
+            migrator.Update();
         }
     }
 }
