@@ -25,7 +25,7 @@
         var now = moment();
         now.add('m', -now.zone());
         vm.item = {
-            id: null,
+            id: 0,
             title: null,
             description: null,
             dueDate: now.toDate(),
