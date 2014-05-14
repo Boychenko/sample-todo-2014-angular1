@@ -12,7 +12,7 @@
             }
             return $q.when();
         };
-        checkAccess.inject = ['$q', '$location', 'session'];
+        checkAccess.$inject = ['$q', '$location', 'session'];
         this.registerRoutes = function (routes) {
             routes.forEach(function (r) {
                 r.config.templateUrl = routeResolverProvider.getView(r.config.templateUrl);
