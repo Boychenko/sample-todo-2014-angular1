@@ -20,7 +20,7 @@
         vm.loaded = false;
         var paging = {
             page: 1,
-            pageSize: 5,
+            pageSize: 25,
             total: 0,
             pageChange: pageChange
         };
