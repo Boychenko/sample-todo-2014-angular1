@@ -26,7 +26,7 @@
 
         function get() {
             if (loaded) {
-                return $.when(references);
+                return $q.when(references);
             }
             return resource.get().$promise.then(function(result) {
                 _.extend(references, _.pick(result, _.keys(references)));

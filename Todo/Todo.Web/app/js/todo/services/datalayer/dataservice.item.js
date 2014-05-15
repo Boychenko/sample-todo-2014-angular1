@@ -26,11 +26,11 @@
             return resource.get(params).$promise.catch(errorCallback);
         }
 
-        function create(category){
-            return resource.save(category).$promise.catch(errorCallback);
+        function create(item){
+            return resource.save(item).$promise.catch(errorCallback);
         }
-        function update(category){
-            return resource.update(category).$promise.catch(errorCallback);
+        function update(item){
+            return resource.update(item).$promise.catch(errorCallback);
         }
 
         function get(id){
